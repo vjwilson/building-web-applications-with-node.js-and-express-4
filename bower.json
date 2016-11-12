@@ -1,0 +1,21 @@
+{
+  "name": "Building-Web-Apps-Node-Express4",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Van J. Wilson <van.wilson1992@alumni.unc.edu>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3",
+    "font-awesome": "^4.7.0"
+  }
+}
