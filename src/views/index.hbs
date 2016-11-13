@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>{{title}}</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <!-- endbower -->
+    <!-- bower:js -->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- endinject -->
+  </head>
+
+  <body class="container">
+    <h1>{{title}}</h1>
+
+    <ul>
+      {{#each list}}
+        <li>Item {{this}}</li>
+      {{/each}}
+    </ul>
+    <!-- inject:js -->
+    <script src="/js/app.js"></script>
+    <!-- endinject -->
+  </body>
+</html>
