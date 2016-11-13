@@ -9,7 +9,7 @@ app.set('views', './src/views');
 app.set('view engine', 'jade');
 
 app.get('/', function(req, res) {
-  res.send('<html><h1>Hello World</h1></html>');
+  res.render('index', { list: ['1', '2', '3'] });
 });
 
 app.get('/books', function(req, res) {
