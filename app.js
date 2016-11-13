@@ -10,7 +10,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-  res.render('index', { title: 'Hello from EJS', list: ['1', '2', '3'] });
+  res.render('index', { title: 'Hello from EJS', categories: ['Design', 'User Experience', 'Development'] });
 });
 
 app.get('/books', function(req, res) {
