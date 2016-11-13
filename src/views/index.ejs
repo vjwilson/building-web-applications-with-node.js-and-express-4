@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>{{title}}</title>
+    <title><%= title %></title>
     <!-- bower:css -->
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
@@ -15,12 +15,12 @@
   </head>
 
   <body class="container">
-    <h1>{{title}}</h1>
+    <h1><%= title %></h1>
 
     <ul>
-      {{#each list}}
-        <li>Item {{this}}</li>
-      {{/each}}
+      <% for (var i = 0; i < list.length; i++) { %>
+        <li>Item <%= list[i] %></li>
+      <% } %>
     </ul>
     <!-- inject:js -->
     <script src="/js/app.js"></script>
