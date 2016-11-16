@@ -44,7 +44,7 @@ var router = function(nav) {
 
       request.query('SELECT * FROM books',
         function(err, resultset) {
-          if (err) {
+          if (err || resultset.length === 0) {
             res.render('bookListView', {
               title: 'Books',
               nav: nav,
@@ -61,21 +61,29 @@ var router = function(nav) {
     });
 
   bookRouter.route('/:id')
-    .get(function(req, res) {
+    .all(function(req, res, next) {
       var id = req.params.id;
       var ps = new sql.PreparedStatement();
       ps.input('id', sql.Int);
       ps.prepare('SELECT * FROM books where id = @id',
-       function(err) {
-         ps.execute({ id: id },
-          function(err, resultset) {
-            res.render('bookView', {
-              title: 'Books',
-              nav: nav,
-              book: resultset[0]
+        function(err) {
+          ps.execute({ id: id },
+            function(err, resultset) {
+              if (err || resultset.length === 0) {
+                res.status(404).send('Not found');
+              } else {
+                req.book = resultset[0];
+                next();
+              }
             });
-          });
-       });
+        });
+    })
+    .get(function(req, res) {
+      res.render('bookView', {
+        title: 'Books',
+        nav: nav,
+        book: req.book
+      });
     });
 
   return bookRouter;
