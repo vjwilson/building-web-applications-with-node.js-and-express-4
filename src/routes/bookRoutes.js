@@ -2,6 +2,8 @@ var express = require('express');
 
 var bookRouter = express.Router();
 
+var sql = require('mssql');
+
 var router = function(nav) {
   var books = [
     {
@@ -38,21 +40,42 @@ var router = function(nav) {
 
   bookRouter.route('/')
     .get(function(req, res) {
-      res.render('bookListView', {
-        title: 'Books',
-        nav: nav,
-        books: books
-      });
+      var request = new sql.Request();
+
+      request.query('SELECT * FROM books',
+        function(err, resultset) {
+          if (err) {
+            res.render('bookListView', {
+              title: 'Books',
+              nav: nav,
+              books: []
+            });
+          } else {
+            res.render('bookListView', {
+              title: 'Books',
+              nav: nav,
+              books: resultset
+            });
+          }
+        });
     });
 
   bookRouter.route('/:id')
     .get(function(req, res) {
       var id = req.params.id;
-      res.render('bookView', {
-        title: 'Books',
-        nav: nav,
-        book: books[id]
-      });
+      var ps = new sql.PreparedStatement();
+      ps.input('id', sql.Int);
+      ps.prepare('SELECT * FROM books where id = @id',
+       function(err) {
+         ps.execute({ id: id },
+          function(err, resultset) {
+            res.render('bookView', {
+              title: 'Books',
+              nav: nav,
+              book: resultset[0]
+            });
+          });
+       });
     });
 
   return bookRouter;

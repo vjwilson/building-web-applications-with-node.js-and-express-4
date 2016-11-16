@@ -12,7 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "ejs": "^2.5.2",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "mssql": "^3.3.0"
   },
   "devDependencies": {
     "eslint": "^3.10.0",

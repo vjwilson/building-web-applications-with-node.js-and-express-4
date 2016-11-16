@@ -2,6 +2,25 @@ var express = require('express');
 
 var app = express();
 
+var sql = require('mssql');
+var config = {
+  user: process.env.EXPRESS4VAN_DATABASE_USER,
+  password: process.env.EXPRESS4VAN_DATABASE_PASSWORD,
+  server: process.env.EXPRESS4VAN_DATABASE_SERVER,
+  database: process.env.EXPRESS4VAN_DATABASE_DATABASE,
+  options: {
+    encrypt: true // Use this if you're on Windows Azure
+  }
+};
+
+sql.connect(config)
+  .then(function(res) {
+    // console.log(res);
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
+
 var port = process.env.PORT || 5000;
 var nav = [
   {
