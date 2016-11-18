@@ -13,6 +13,7 @@
   "dependencies": {
     "ejs": "^2.5.2",
     "express": "^4.13.3",
+    "mongodb": "^2.2.11",
     "mssql": "^3.3.0"
   },
   "devDependencies": {
