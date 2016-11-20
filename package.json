@@ -11,10 +11,15 @@
   "author": "Van J. Wilson <van.wilson1992@alumni.unc.edu>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
     "ejs": "^2.5.2",
     "express": "^4.13.3",
+    "express-session": "^1.14.2",
     "mongodb": "^2.2.11",
-    "mssql": "^3.3.0"
+    "mssql": "^3.3.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^3.10.0",
