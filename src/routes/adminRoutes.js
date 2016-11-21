@@ -8,30 +8,35 @@ var router = function(nav) {
       title: 'War and Peace',
       genre: 'Historial Fiction',
       author: 'Leo Tolstoy',
+      bookId: 656,
       read: false
     },
     {
       title: 'Les Miserables',
       genre: 'Historial Fiction',
       author: 'Victor Hugo',
+      bookId: 24280,
       read: true
     },
     {
       title: 'A Journey to the Center of the Earth',
       genre: 'Science Fiction',
       author: 'Jules Verne',
+      bookId: 32829,
       read: false
     },
     {
       title: 'The Lord of the Rings',
       genre: 'Fantasy',
       author: 'J.R.R. Tolkien',
+      bookId: 33,
       read: true
     },
     {
       title: 'Life on the Mississippi',
       genre: 'History',
       author: 'Mark Twain',
+      bookId: 99152,
       read: false
     }
   ];
